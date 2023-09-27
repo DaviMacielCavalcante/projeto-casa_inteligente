@@ -32,7 +32,7 @@ public class CasaInteligente {
         for (Dispositivo dispositivo : dispositivos) {
             if (dispositivo instanceof Iluminacao) {
                 Iluminacao i = (Iluminacao) dispositivo;
-                if (comodo.equals(i.comodo)) {
+                if (comodo.equals(i.getComodo())) {
                     i.desligar();
                 }
             }
@@ -50,13 +50,17 @@ public class CasaInteligente {
             }
         }
     }
+
     public void ligarTv(String comodo) {
         for (Dispositivo dispositivo : dispositivos) {
             if (dispositivo instanceof Tv) {
                 Tv i = (Tv) dispositivo;
                 if (comodo.equals(i.getComodo()) && !i.isLigado()) {
                     i.ligar();
-
+                }
+            }
+        }
+    }
 
 ////CLIMATIZADOR
     public void alterarTemperatura(String comodo, int temperatura){
@@ -76,6 +80,8 @@ public class CasaInteligente {
             System.out.println("Temperatura invalida");
         }
     }
+/////FIM CLIMATIZADOR
+
     public void ligarClimatizador(String comodo){
         for(Dispositivo dispositivo : dispositivos){
             if(dispositivo instanceof Climatizador){
@@ -96,6 +102,10 @@ public class CasaInteligente {
                 Tv i = (Tv) dispositivo;
                 if (comodo.equals(i.getComodo()) && i.isLigado()) {
                     i.mudarCanal(canal);
+                }
+            }
+        }
+    }
 
     public void desligarClimatizador(String comodo){
         for(Dispositivo dispositivo : dispositivos){
@@ -122,4 +132,3 @@ public class CasaInteligente {
         }
     }
 }
-/////FIM CLIMATIZADOR
