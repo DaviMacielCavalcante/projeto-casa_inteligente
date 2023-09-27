@@ -27,5 +27,8 @@ public class Seguranca extends Dispositivo {
         this.alarme = alarme;
     }
 
-    
+    @Override
+    public String toString() {
+        return "Segurança [ligado= " + isLigado() + "]";
+    }
 }

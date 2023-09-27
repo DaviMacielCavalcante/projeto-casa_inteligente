@@ -2,12 +2,15 @@ package com.casa_inteligente.conversorJson;
 
 import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
 import java.util.ArrayList;
 
+import com.casa_inteligente.entidades.Climatizador;
 import com.casa_inteligente.entidades.Dispositivo;
 import com.casa_inteligente.entidades.Fogao;
+import com.casa_inteligente.entidades.Geladeira;
+import com.casa_inteligente.entidades.Iluminacao;
+import com.casa_inteligente.entidades.Seguranca;
+import com.casa_inteligente.entidades.Tv;
 import com.google.gson.stream.JsonReader;
 
 public class Conversor {    
@@ -55,15 +58,45 @@ public class Conversor {
                 ligado = reader.nextBoolean();
             } else if (name.equals("temperatura")) {
                 temperatura = reader.nextDouble();
+            } else if (name.equals("comodo")) {
+                comodo = reader.nextString();
+            } else if (name.equals("canal")) {
+                canal = reader.nextInt();
+            } else if (name.equals("volume")) {
+                volume = reader.nextInt();
             } else {
                 reader.skipValue();
             }                        
         }
-        reader.endObject();
-        if (tipo.equals("Fogao")) {
+        reader.endObject();        
+
+        switch (tipo) {
+            case "Tv":
+                Tv tv = new Tv(ligado, comodo);
+                return tv;
+
+            case "Fogao":
                 Fogao f = new Fogao(ligado);
                 return f;
-            }   
+
+            case "Geladeira": 
+                Geladeira g = new Geladeira(ligado);
+                return g;
+
+            case "Climatizador":
+                Climatizador cli = new Climatizador(ligado, comodo);
+                return cli;
+
+            case "Iluminacao":
+                Iluminacao il = new Iluminacao(ligado, comodo);
+                return il;
+
+            case "Seguranca":
+                Seguranca se = new Seguranca(ligado);
+                return se;
+            default:
+                break;
+        }
         return null;
     }
 

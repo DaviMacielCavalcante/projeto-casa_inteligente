@@ -24,7 +24,9 @@ public class Climatizador extends Dispositivo{
     public void setTemperatura(int temperatura) {
         this.temperatura = temperatura;
     }
-
     
-    
+    @Override
+    public String toString() {
+        return "Climatizador [ligado= " + isLigado() + ", comodo= " + comodo + ", temperatura= " + temperatura + "]";
+    }
 }

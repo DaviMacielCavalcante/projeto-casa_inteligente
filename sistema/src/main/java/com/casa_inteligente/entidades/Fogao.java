@@ -10,6 +10,6 @@ public class Fogao extends Dispositivo {
 
     @Override
     public String toString() {
-        return "Fogao [ligado= " + isLigado() + ", " + "temperatura= " + temperatura + "]";
+        return "Fogão [ligado= " + isLigado() + ", " + "temperatura= " + temperatura + "]";
     }        
 }

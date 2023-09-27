@@ -7,5 +7,5 @@
     {"tipo": "Iluminacao", "ligado": false, "comodo": "sala"},
     {"tipo": "Iluminacao", "ligado": false, "comodo": "banheiro"},
     {"tipo": "Seguranca", "ligado": false},
-    {"tipo": "Tv", "ligado": false, "comodo": "quarto", "canal": null, "volume": null}
+    {"tipo": "Tv", "ligado": false, "comodo": "quarto", "canal": 0, "volume": 0}
 ]

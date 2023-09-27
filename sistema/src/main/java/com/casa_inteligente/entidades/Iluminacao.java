@@ -17,4 +17,9 @@ public class Iluminacao extends Dispositivo {
         this.comodo = comodo;
     }
 
+    @Override
+    public String toString() {
+        return "Iluminação [ligado= " + isLigado() + ", comodo= " + comodo + "]";
+    }
+
 }
