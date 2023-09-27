@@ -1,6 +1,8 @@
 package com.casa_inteligente.entidades;
 
 public class Tv extends Dispositivo{
+
+    private String tipo = "Tv";
     
     private String comodo;
     private int canal, volume;    

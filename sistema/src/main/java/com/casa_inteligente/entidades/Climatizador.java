@@ -1,6 +1,7 @@
 package com.casa_inteligente.entidades;
 
 public class Climatizador extends Dispositivo{
+    private String tipo = "Climatizador";
     private String comodo;
     private int temperatura = 20;
 

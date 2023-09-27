@@ -1,6 +1,7 @@
 package com.casa_inteligente.conversorJson;
 
 import java.io.BufferedReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 
@@ -11,6 +12,8 @@ import com.casa_inteligente.entidades.Geladeira;
 import com.casa_inteligente.entidades.Iluminacao;
 import com.casa_inteligente.entidades.Seguranca;
 import com.casa_inteligente.entidades.Tv;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import com.google.gson.stream.JsonReader;
 
 public class Conversor {    
@@ -18,7 +21,7 @@ public class Conversor {
     public Conversor() {        
     }
 
-     public ArrayList<Dispositivo> carregarDispositivos(BufferedReader in) throws IOException {
+    public ArrayList<Dispositivo> carregarDispositivos(BufferedReader in) throws IOException {
         
            JsonReader reader = new JsonReader(new BufferedReader(in));     
            
@@ -100,4 +103,19 @@ public class Conversor {
         return null;
     }
 
+    public void salvarDipositivos(ArrayList<Dispositivo> dispositivos) {
+        
+        Gson gson = new GsonBuilder().setPrettyPrinting().create();
+
+        String path = "sistema\\src\\main\\java\\com\\casa_inteligente\\jsons";
+
+        String nomeArquivo = path + "\\" + "dispositivos.json";
+        try {
+            FileWriter escrita = new FileWriter(nomeArquivo);
+            escrita.write(gson.toJson(dispositivos));
+            escrita.close();
+        } catch (Exception e) {
+            e.getMessage();
+        }
+    }
 }

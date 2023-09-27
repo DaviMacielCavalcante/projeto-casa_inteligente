@@ -1,6 +1,7 @@
 package com.casa_inteligente.entidades;
 
 public class Geladeira extends Dispositivo{
+    private String tipo = "Geladeira";
     private int temperatura;
 
     public Geladeira(boolean ligado) {

@@ -7,7 +7,13 @@ public class App {
 
         CasaInteligente ci = new CasaInteligente();  
 
+        ci.ligarTv("quarto");
+        //ci.mudarCanalTv("quarto", 10);
+        //ci.mudarVolumeTv("quarto", 30);
+
          
         System.out.println(ci);  
+
+        ci.salvarDipositivos();
     }
 }

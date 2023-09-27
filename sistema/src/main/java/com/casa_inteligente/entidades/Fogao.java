@@ -1,6 +1,7 @@
 package com.casa_inteligente.entidades;
 
 public class Fogao extends Dispositivo {
+    private String tipo = "Fogao";
     private double temperatura;    
 
     public Fogao(boolean ligado) {

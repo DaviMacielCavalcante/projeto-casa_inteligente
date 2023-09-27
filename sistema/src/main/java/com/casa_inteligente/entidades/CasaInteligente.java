@@ -15,23 +15,12 @@ public class CasaInteligente {
 
     public void adicionarDispositivos(Dispositivo obj) {
         dispositivos.add(obj);
-    }
+    }    
 
-    private ArrayList<Dispositivo> carregarDispositivos() {  
+    public void salvarDipositivos() {
         Conversor cv = new Conversor();
-        String path = "sistema\\src\\main\\java\\com\\casa_inteligente\\jsons\\dispositivos.json";   
-        BufferedReader fi; 
-        ArrayList<Dispositivo> dispositivos = new ArrayList<>();  
-        try {            
-            fi = new BufferedReader(new InputStreamReader(new FileInputStream(path))); 
-            dispositivos = cv.carregarDispositivos(fi);           
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
 
-        return dispositivos;
+        cv.salvarDipositivos(dispositivos);
     }
 
     public void desligarFogao() {
@@ -80,7 +69,7 @@ public class CasaInteligente {
                 Tv i = (Tv) dispositivo;
                 if (comodo.equals(i.getComodo()) && !i.isLigado()) {
                     i.ligar();
-                }
+                } 
             }
         }
     }
@@ -209,6 +198,23 @@ public class CasaInteligente {
                 }
             }
         }
+    }
+
+    private ArrayList<Dispositivo> carregarDispositivos() {  
+        Conversor cv = new Conversor();
+        String path = "sistema\\src\\main\\java\\com\\casa_inteligente\\jsons\\dispositivos.json";   
+        BufferedReader fi; 
+        ArrayList<Dispositivo> dispositivos = new ArrayList<>();  
+        try {            
+            fi = new BufferedReader(new InputStreamReader(new FileInputStream(path))); 
+            dispositivos = cv.carregarDispositivos(fi);           
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        return dispositivos;
     }
 
     @Override

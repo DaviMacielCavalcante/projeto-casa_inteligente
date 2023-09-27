@@ -2,6 +2,7 @@ package com.casa_inteligente.entidades;
 
 public class Iluminacao extends Dispositivo {
 
+    private String tipo = "Iluminacao";
     private String comodo;
 
     public Iluminacao(boolean ligado, String comodo){
