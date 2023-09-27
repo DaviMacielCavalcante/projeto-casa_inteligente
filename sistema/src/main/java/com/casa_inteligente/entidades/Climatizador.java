@@ -4,10 +4,12 @@ public class Climatizador extends Dispositivo{
     private String comodo;
     private int temperatura = 20;
 
-    public Climatizador() {
+    public Climatizador(boolean ligado) {
+        super(ligado);
     }
 
-    public Climatizador(String comodo) {
+    public Climatizador(boolean ligado, String comodo) {
+        super(ligado);
         this.comodo = comodo;
     }
 

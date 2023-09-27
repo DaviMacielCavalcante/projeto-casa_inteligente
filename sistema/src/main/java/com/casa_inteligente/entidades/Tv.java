@@ -5,11 +5,13 @@ public class Tv extends Dispositivo{
     private String comodo;
     private int canal, volume;    
 
-    public Tv(String comodo) {
+    public Tv(boolean ligado, String comodo) {
+        super(ligado);
         this.comodo = comodo;
     }
 
-    public Tv() {
+    public Tv(boolean ligado) {
+        super(ligado);
     }
 
     public String getComodo() {

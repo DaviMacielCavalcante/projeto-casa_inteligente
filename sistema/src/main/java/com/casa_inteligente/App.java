@@ -10,17 +10,7 @@ public class App {
 
         CasaInteligente ci = new CasaInteligente();
   
-        ci.adicionarDispositivos(new Climatizador("sala"));
-
-        ci.ligarClimatizador("sala");
-
-        ci.alterarTemperatura("sala", 30);
-
-        ci.adicionarDispositivos(new Fogao());
-
-        ci.desligarFogao();
-
-        ci.adicionarDispositivos(new Seguranca());
+        
 
         ci.ativarCamera(true);
         ci.ativarCamera(true);
@@ -30,7 +20,7 @@ public class App {
         ci.ligarAlarme(true);
         ci.ligarAlarme(true);
         ci.desligarAlarme(false);
-        ci.desligarAlarme(false);
-    
+        ci.desligarAlarme(false);      
+        System.out.println(ci);  
     }
 }

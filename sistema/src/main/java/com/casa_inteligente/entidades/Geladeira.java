@@ -1,17 +1,18 @@
 package com.casa_inteligente.entidades;
 
 public class Geladeira extends Dispositivo{
-    private double temperatura;
+    private int temperatura;
 
-    public Geladeira() {
+    public Geladeira(boolean ligado) {
+        super(ligado);
         this.temperatura = 10;
     }
 
-    public double getTemperatura() {
+    public int getTemperatura() {
         return temperatura;
     }
 
-    public void setTemperatura(double temperatura) {
+    public void setTemperatura(int temperatura) {
         this.temperatura = temperatura;
     }
     

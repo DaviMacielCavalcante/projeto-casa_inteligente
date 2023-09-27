@@ -1,14 +1,37 @@
 package com.casa_inteligente.entidades;
 
+import java.io.BufferedReader;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 
-public class CasaInteligente {
-    
+import com.casa_inteligente.conversorJson.Conversor;
 
-    public ArrayList<Dispositivo> dispositivos = new ArrayList<>();
+public class CasaInteligente {        
+
+    public ArrayList<Dispositivo> dispositivos = carregarDispositivos();
 
     public void adicionarDispositivos(Dispositivo obj) {
         dispositivos.add(obj);
+    }
+
+    private ArrayList<Dispositivo> carregarDispositivos() {  
+        Conversor cv = new Conversor();
+        String path = "sistema\\src\\main\\java\\com\\casa_inteligente\\jsons\\dispositivos.json";   
+        BufferedReader fi; 
+        ArrayList<Dispositivo> dispositivos = new ArrayList<>();  
+        try {            
+            fi = new BufferedReader(new InputStreamReader(new FileInputStream(path))); 
+            dispositivos = cv.carregarDispositivos(fi);           
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        return dispositivos;
     }
 
     public void desligarFogao() {
@@ -188,5 +211,8 @@ public class CasaInteligente {
         }
     }
 
-    
+    @Override
+    public String toString() {
+        return "CasaInteligente [dispositivos=" + dispositivos + "]";
+    }    
 }

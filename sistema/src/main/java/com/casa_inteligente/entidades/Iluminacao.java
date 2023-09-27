@@ -4,7 +4,8 @@ public class Iluminacao extends Dispositivo {
 
     private String comodo;
 
-    public Iluminacao(String comodo){
+    public Iluminacao(boolean ligado, String comodo){
+        super(ligado);
         this.comodo = comodo;
     }
 

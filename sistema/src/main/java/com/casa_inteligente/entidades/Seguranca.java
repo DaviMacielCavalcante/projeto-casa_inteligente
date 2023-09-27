@@ -4,12 +4,15 @@ public class Seguranca extends Dispositivo {
     private boolean camera;
     private boolean alarme;   
 
-    public Seguranca(boolean camera, boolean alarme) {
+    public Seguranca(boolean ligado, boolean camera, boolean alarme) {
+        super(ligado);
         this.camera = camera;
         this.alarme = alarme;
     }
 
-    public Seguranca() { }
+    public Seguranca(boolean ligado) { 
+        super(ligado);
+    }
     
     public boolean isCamera() {
         return camera;
