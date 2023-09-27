@@ -131,4 +131,62 @@ public class CasaInteligente {
             }
         }
     }
+    ///////////////////
+
+    public void ativarCamera(boolean camera){
+        for(Dispositivo dispositivo : dispositivos){
+            if(dispositivo instanceof Seguranca){
+                Seguranca cam = (Seguranca) dispositivo;
+                if(camera != cam.isLigado()){
+                    cam.ligar();
+                    System.out.println("Camera ligada");
+                } else {
+                    System.out.println("Camera ja ligada");
+                }
+            }
+        }
+    }
+
+    public void desligarCamera(boolean camera){
+        for(Dispositivo dispositivo : dispositivos){
+            if(dispositivo instanceof Seguranca){
+                Seguranca cam = (Seguranca) dispositivo;
+                if(camera = cam.isLigado()){
+                    cam.desligar();
+                    System.out.println("Desligando sistema...");
+                } else {
+                    System.out.println("Camera ja desligada");
+                }
+            }
+        }
+    }
+    public void ligarAlarme(boolean alarme){
+        for(Dispositivo dispositivo : dispositivos){
+            if(dispositivo instanceof Seguranca){
+                Seguranca al = (Seguranca) dispositivo;
+                if(alarme != al.isLigado()){
+                    al.ligar();
+                    System.out.println("alarme ligado");
+                } else {
+                    System.out.println("alarme ja estava ligado");
+                }
+            }
+        }
+    }
+
+    public void desligarAlarme(boolean alarme){
+        for(Dispositivo dispositivo : dispositivos){
+            if(dispositivo instanceof Seguranca){
+                Seguranca al = (Seguranca) dispositivo;
+                if(alarme = al.isLigado()){
+                    al.desligar();
+                    System.out.println("Alarme desligado");
+                } else {
+                    System.out.println("Alarme ja estava desligado");
+                }
+            }
+        }
+    }
+
+    
 }
