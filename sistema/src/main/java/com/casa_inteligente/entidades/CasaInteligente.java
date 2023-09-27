@@ -18,6 +18,15 @@ public class CasaInteligente {
             }
         }
     }
+    
+    public void ligarFogao() {
+        for (Dispositivo dispositivo : dispositivos) {
+            if (dispositivo instanceof Fogao) {
+                dispositivo.ligar();
+            }
+        }
+    }
+
 
     public void desligarIluminacao(String comodo) {
         for (Dispositivo dispositivo : dispositivos) {
@@ -29,6 +38,25 @@ public class CasaInteligente {
             }
         }
     }
+
+
+    public void desligarTv(String comodo) {
+        for (Dispositivo dispositivo : dispositivos) {
+            if (dispositivo instanceof Tv) {
+                Tv i = (Tv) dispositivo;
+                if (comodo.equals(i.getComodo()) && i.isLigado()) {
+                    i.desligar();
+                }
+            }
+        }
+    }
+    public void ligarTv(String comodo) {
+        for (Dispositivo dispositivo : dispositivos) {
+            if (dispositivo instanceof Tv) {
+                Tv i = (Tv) dispositivo;
+                if (comodo.equals(i.getComodo()) && !i.isLigado()) {
+                    i.ligar();
+
 
 ////CLIMATIZADOR
     public void alterarTemperatura(String comodo, int temperatura){
@@ -55,10 +83,19 @@ public class CasaInteligente {
                 if(comodo.equals(c.getComodo()) && !c.isLigado()){
                     c.ligar();
                     System.out.println("Climatizador ligado");
+
                 }
             }
         }
     }
+
+
+    public void mudarCanalTv(String comodo, int canal) {
+        for (Dispositivo dispositivo : dispositivos) {
+            if (dispositivo instanceof Tv) {
+                Tv i = (Tv) dispositivo;
+                if (comodo.equals(i.getComodo()) && i.isLigado()) {
+                    i.mudarCanal(canal);
 
     public void desligarClimatizador(String comodo){
         for(Dispositivo dispositivo : dispositivos){
@@ -67,6 +104,19 @@ public class CasaInteligente {
                 if(comodo.equals(c.getComodo()) && !c.isLigado()){
                     c.ligar();
                     System.out.println("Climatizador desligado");
+
+                }
+            }
+        }
+    }
+
+
+    public void mudarVolumeTv(String comodo, int volume) {
+        for (Dispositivo dispositivo : dispositivos) {
+            if (dispositivo instanceof Tv) {
+                Tv i = (Tv) dispositivo;
+                if (comodo.equals(i.getComodo()) && i.isLigado()) {
+                    i.mudarVolume(volume);
                 }
             }
         }
