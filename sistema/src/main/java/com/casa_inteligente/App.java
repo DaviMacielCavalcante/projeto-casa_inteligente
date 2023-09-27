@@ -6,6 +6,8 @@ import com.casa_inteligente.entidades.Fogao;
 public class App {
     public static void main( String[] args ) {
 
+        String gabriel;
+
         CasaInteligente ci = new CasaInteligente();
 
         ci.adicionarDispositivos(new Fogao());
