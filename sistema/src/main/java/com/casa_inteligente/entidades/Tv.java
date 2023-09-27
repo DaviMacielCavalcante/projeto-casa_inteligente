@@ -3,9 +3,7 @@ package com.casa_inteligente.entidades;
 public class Tv extends Dispositivo{
     
     private String comodo;
-    private int canal, volume;
-
-    
+    private int canal, volume;    
 
     public Tv(String comodo) {
         this.comodo = comodo;

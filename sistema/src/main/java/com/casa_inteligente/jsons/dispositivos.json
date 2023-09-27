@@ -1,0 +1,11 @@
+[
+    {"tipo": "Fogao", "ligado": false ,"temperatura": 0.0},
+    {"tipo": "Geladeira", "ligado": false ,"temperatura": 0.0},
+    {"tipo": "Climatizador", "ligado": false,"comodo": "quarto" ,"temperatura": 20},
+    {"tipo": "Iluminacao", "ligado": false, "comodo": "quarto"},
+    {"tipo": "Iluminacao", "ligado": false, "comodo": "cozinha"},
+    {"tipo": "Iluminacao", "ligado": false, "comodo": "sala"},
+    {"tipo": "Iluminacao", "ligado": false, "comodo": "banheiro"},
+    {"tipo": "Seguranca", "ligado": false},
+    {"tipo": "Tv", "ligado": false, "comodo": "quarto", "canal": null, "volume": null}
+]
