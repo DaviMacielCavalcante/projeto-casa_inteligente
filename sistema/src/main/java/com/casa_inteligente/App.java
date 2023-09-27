@@ -13,5 +13,7 @@ public class App {
         ci.adicionarDispositivos(new Fogao());
 
         ci.desligarFogao();
+
+        String julio = "";
     }
 }
