@@ -29,4 +29,47 @@ public class CasaInteligente {
             }
         }
     }
+
+////CLIMATIZADOR
+    public void alterarTemperatura(String comodo, int temperatura){
+       if(temperatura>15 && temperatura<30){
+         for(Dispositivo dispositivo : dispositivos){
+            if(dispositivo instanceof Climatizador){
+                Climatizador c = (Climatizador) dispositivo;
+                if(comodo.equals(c.getComodo()) && c.isLigado()) {
+                    c.setTemperatura(temperatura);
+                    System.out.println("Temperatura alterada para: "+temperatura+" celsius.");
+                }  else{
+                    System.out.println("Climatizador desligado, impossivel alterar a temperatura");
+                    }
+                }
+            }
+        } else {
+            System.out.println("Temperatura invalida");
+        }
+    }
+    public void ligarClimatizador(String comodo){
+        for(Dispositivo dispositivo : dispositivos){
+            if(dispositivo instanceof Climatizador){
+                Climatizador c = (Climatizador) dispositivo;
+                if(comodo.equals(c.getComodo()) && !c.isLigado()){
+                    c.ligar();
+                    System.out.println("Climatizador ligado");
+                }
+            }
+        }
+    }
+
+    public void desligarClimatizador(String comodo){
+        for(Dispositivo dispositivo : dispositivos){
+            if(dispositivo instanceof Climatizador){
+                Climatizador c = (Climatizador) dispositivo;
+                if(comodo.equals(c.getComodo()) && !c.isLigado()){
+                    c.ligar();
+                    System.out.println("Climatizador desligado");
+                }
+            }
+        }
+    }
 }
+/////FIM CLIMATIZADOR
