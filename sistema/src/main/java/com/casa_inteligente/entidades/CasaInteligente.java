@@ -210,6 +210,48 @@ public class CasaInteligente {
             }
         }
     }
+    public void ligarIluminacao(String comodo){
+        for(Dispositivo dispositivo : dispositivos){
+            if(dispositivo instanceof Iluminacao){
+                Iluminacao il = (Iluminacao) dispositivo;
+                if(comodo.equals(il.getComodo()) && !il.isLigado()){
+                    il.ligar();
+                    System.out.println("Iluminacao ligada");
+                }
+            }
+        }
+    }
+    public void ligarGeladeira(){
+        for(Dispositivo dispositivo : dispositivos){
+            if(dispositivo instanceof Geladeira){
+                Geladeira gel = (Geladeira) dispositivo;
+                gel.ligar();
+                System.out.println("Geladeira ligada");
+            }
+        }
+    }
+    public void desligarGeladeira(){
+        for(Dispositivo dispositivo : dispositivos){
+            if(dispositivo instanceof Geladeira){
+                Geladeira gel = (Geladeira) dispositivo;
+                gel.desligar();
+                System.out.println("Geladeira desligada");
+            }
+        }
+    } public void geladeiraTemperatura(int temperatura){
+        for(Dispositivo dispositivo : dispositivos){
+            if(dispositivo instanceof Geladeira){
+                Geladeira gel = (Geladeira) dispositivo;
+                if(temperatura>(-20) && temperatura<30){
+                    gel.setTemperatura(temperatura);
+                    System.out.println("temperatura valida");
+                } else{
+                    System.out.println("Temperatura invalida");
+                }
+            }
+        }
+    }
+    
 
     private ArrayList<Dispositivo> carregarDispositivos() {  
         Conversor cv = new Conversor();

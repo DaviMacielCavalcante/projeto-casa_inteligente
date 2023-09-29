@@ -79,7 +79,7 @@ public class Tela extends JFrame{
 
         @Override
         public void actionPerformed(ActionEvent e) {
-            ci.ligarClimatizador("quarto");
+            ci.ligarIluminacao("sala");
             ci.salvarDipositivos();
         }
         
@@ -87,7 +87,7 @@ public class Tela extends JFrame{
         iluDesJButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                ci.desligarClimatizador("quarto");
+                ci.desligarIluminacao("sala");
                 ci.salvarDipositivos();
             }
             
@@ -112,6 +112,11 @@ public class Tela extends JFrame{
         JButton fogLiJButton = new JButton("Ligar Fogao");
         JButton fogDesJButton = new JButton("Desligar Fogao");
         JButton fogTempJButton = new JButton("Escolher temperatura");
+        JButton gelLigJButton = new JButton("Ligar Geladeira");
+        JButton gelDesJButton = new JButton("Desligar Geladeira");
+        JButton gelTempJButton = new JButton("Temperatura Geladeira");
+        JButton iluLigCozJButton = new JButton("Ligar Iluminacao");
+        JButton iluCozDesCozJButton = new JButton("Desligar Iluminacao");
 
         fogLiJButton.addActionListener(new ActionListener() {
 
@@ -135,7 +140,7 @@ public class Tela extends JFrame{
 
             @Override
             public void actionPerformed(ActionEvent e) {
-                String input = JOptionPane.showInputDialog("Digite a temperatura:");
+                String input = JOptionPane.showInputDialog("Digite a temperatura do Forno:");
                 try{
                     double temperatura = Double.parseDouble(input);
                     ci.fogTemperatura(temperatura);
@@ -146,11 +151,62 @@ public class Tela extends JFrame{
             }
             
         });
+        gelLigJButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                ci.ligarGeladeira();
+                ci.salvarDipositivos();
+            }
+            
+        });
+        gelDesJButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                ci.desligarGeladeira();
+                ci.salvarDipositivos();
+            }
+            
+        });
+        gelTempJButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String input = JOptionPane.showInputDialog("Escolher temperatura geladeira");
+                try {
+                    int temperatura = Integer.parseInt(input);
+                    ci.geladeiraTemperatura(temperatura);
+                    ci.salvarDipositivos();
+                } catch (NumberFormatException ex) {
+                    JOptionPane.showMessageDialog(null,"Coloque uma temperatura valida");
+                }
+            }
+            
+        });
+        iluLigCozJButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                ci.ligarIluminacao("cozinha");
+                ci.salvarDipositivos();
+            }
+            
+        });
+        iluCozDesCozJButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                ci.desligarIluminacao("cozinha");
+                ci.salvarDipositivos();
+            }
+            
+        });
 
         panelCoz.add(labelCoz);
         panelCoz.add(fogLiJButton);
         panelCoz.add(fogDesJButton);
         panelCoz.add(fogTempJButton);
+        panelCoz.add(gelLigJButton);
+        panelCoz.add(gelDesJButton);
+        panelCoz.add(gelTempJButton);
+        panelCoz.add(iluLigCozJButton);
+        panelCoz.add(iluCozDesCozJButton);
         cozMenu.add(panelCoz);
 
         cozMenu.setVisible(true);
@@ -166,7 +222,7 @@ public class Tela extends JFrame{
         cliLigJButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                ci.ligarClimatizador("quarto");
+                ci.ligarClimatizador("sala");
                 ci.salvarDipositivos();
             }
             
@@ -176,7 +232,7 @@ public class Tela extends JFrame{
         cliDesJButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                ci.desligarClimatizador("quarto");
+                ci.desligarClimatizador("sala");
                 ci.salvarDipositivos();
             }
             
@@ -202,7 +258,8 @@ public class Tela extends JFrame{
         iluLigButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                //FALTA OS METODOS
+                ci.ligarIluminacao("quarto");
+                ci.salvarDipositivos();
             }
             
         });
@@ -211,7 +268,8 @@ public class Tela extends JFrame{
         iluDesJButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                //FALTA O METODO
+                ci.desligarIluminacao("quarto");
+                ci.salvarDipositivos();
             }
             
         });
