@@ -47,11 +47,12 @@ public class Tela extends JFrame{
             }            
         });
 
-        JButton segJButton = new JButton("Seguranca");
+        JButton segJButton = new JButton("4-Seguranca");
         panel.add(segJButton);
         segJButton.addActionListener(new ActionListener() {
             @Override
-            public void actionPerformed(ActionEvent e) {                
+            public void actionPerformed(ActionEvent e) { 
+                abriSeguranca();               
             }            
         });        
 
@@ -280,6 +281,57 @@ public class Tela extends JFrame{
         panelQrt.add(tvCanalJButton);
         qrtMenu.add(panelQrt);
         qrtMenu.setVisible(true);
+    }
+
+    public void abriSeguranca(){
+        JFrame secMenu = new JFrame("Securanca");
+        secMenu.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        secMenu.setSize(500, 500);
+
+        JPanel panelSec = new JPanel();
+
+        JButton alamLigJButton = new JButton("Ligar alarme");
+        alamLigJButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                ci.ligarAlarme(true);
+                ci.salvarDipositivos();
+            }
+            
+        });
+        JButton alamDesJButton = new JButton("Desligar alarme");
+        alamDesJButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                ci.desligarAlarme(false);
+                ci.salvarDipositivos();
+            }
+            
+        });
+        JButton camLigJButton = new JButton("Ligar cameras");
+        camLigJButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                ci.ativarCamera(true);
+                ci.salvarDipositivos();
+            }
+            
+        });
+        JButton camDesJButton = new JButton("Desligar cameras");
+        camDesJButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                ci.desligarCamera(false);
+            }
+            
+        });
+
+        panelSec.add(alamLigJButton);
+        panelSec.add(alamDesJButton);
+        panelSec.add(camLigJButton);
+        panelSec.add(camDesJButton);
+        secMenu.add(panelSec);
+        secMenu.setVisible(true);
     }
 
 }

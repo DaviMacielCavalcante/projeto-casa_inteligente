@@ -2,7 +2,7 @@
   {
     "tipo": "Fogao",
     "temperatura": 0.0,
-    "ligado": true
+    "ligado": false
   },
   {
     "tipo": "Geladeira",
@@ -39,7 +39,7 @@
     "tipo": "Seguranca",
     "camera": false,
     "alarme": false,
-    "ligado": false
+    "ligado": true
   },
   {
     "tipo": "Tv",
