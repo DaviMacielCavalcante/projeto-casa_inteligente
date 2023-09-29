@@ -1,7 +1,7 @@
 [
   {
     "tipo": "Fogao",
-    "temperatura": 500.0,
+    "temperatura": 0.0,
     "ligado": true
   },
   {
@@ -13,7 +13,7 @@
     "tipo": "Climatizador",
     "comodo": "quarto",
     "temperatura": 20,
-    "ligado": false
+    "ligado": true
   },
   {
     "tipo": "Iluminacao",

@@ -132,8 +132,8 @@ public class CasaInteligente {
         for(Dispositivo dispositivo : dispositivos){
             if(dispositivo instanceof Climatizador){
                 Climatizador c = (Climatizador) dispositivo;
-                if(comodo.equals(c.getComodo()) && !c.isLigado()){
-                    c.ligar();
+                if(comodo.equals(c.getComodo()) && c.isLigado()){
+                    c.desligar();
                     System.out.println("Climatizador desligado");
 
                 }
