@@ -26,7 +26,9 @@ public class CasaInteligente {
     public void desligarFogao() {
         for (Dispositivo dispositivo : dispositivos) {
             if (dispositivo instanceof Fogao) {
-                dispositivo.desligar();
+                Fogao f = (Fogao) dispositivo;
+                f.desligar();
+                f.setTemperatura(0);
             }
         }
     }

@@ -44,8 +44,8 @@
   {
     "tipo": "Tv",
     "comodo": "quarto",
-    "canal": 10,
-    "volume": 100,
-    "ligado": true
+    "canal": 0,
+    "volume": 0,
+    "ligado": false
   }
 ]
