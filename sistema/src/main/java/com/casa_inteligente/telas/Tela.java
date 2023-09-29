@@ -48,6 +48,7 @@ public class Tela extends JFrame{
         });
 
         JButton segJButton = new JButton("Seguranca");
+        panel.add(segJButton);
         segJButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {                
