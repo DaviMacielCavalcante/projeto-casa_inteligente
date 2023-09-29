@@ -1,8 +1,8 @@
 [
   {
     "tipo": "Fogao",
-    "temperatura": 0.0,
-    "ligado": false
+    "temperatura": 500.0,
+    "ligado": true
   },
   {
     "tipo": "Geladeira",

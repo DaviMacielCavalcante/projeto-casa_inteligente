@@ -94,6 +94,15 @@ public class CasaInteligente {
     }
 /////FIM CLIMATIZADOR
 
+    public void fogTemperatura(double temperatura){
+        for(Dispositivo dispositivo : dispositivos){
+            if(dispositivo instanceof Fogao){
+                Fogao f = (Fogao) dispositivo;
+                f.setTemperatura(temperatura);
+            }
+        }
+    }
+
     public void ligarClimatizador(String comodo){
         for(Dispositivo dispositivo : dispositivos){
             if(dispositivo instanceof Climatizador){
