@@ -1,7 +1,7 @@
 [
   {
     "tipo": "Fogao",
-    "temperatura": 0.0,
+    "temperatura": 200.0,
     "ligado": true
   },
   {
