@@ -23,7 +23,7 @@ public class CasaInteligente {
         cv.salvarDipositivos(dispositivos);
     }
 
-    public void desligarFogao() {
+    public void desligarFogao(String comodo) {
         for (Dispositivo dispositivo : dispositivos) {
             if (dispositivo instanceof Fogao) {
                 Fogao f = (Fogao) dispositivo;
@@ -33,7 +33,7 @@ public class CasaInteligente {
         }
     }
     
-    public void ligarFogao() {
+    public void ligarFogao(String comodo) {
         for (Dispositivo dispositivo : dispositivos) {
             if (dispositivo instanceof Fogao) {
                 dispositivo.ligar();
@@ -96,7 +96,7 @@ public class CasaInteligente {
     }
 /////FIM CLIMATIZADOR
 
-    public void fogTemperatura(double temperatura){
+    public void fogTemperatura(String comodo, int temperatura){
         for(Dispositivo dispositivo : dispositivos){
             if(dispositivo instanceof Fogao){
                 Fogao f = (Fogao) dispositivo;
@@ -250,6 +250,22 @@ public class CasaInteligente {
                 }
             }
         }
+    }
+    public void configurarTemperaturaFogao(String comodo, int temperatura) {
+        for (Dispositivo dispositivo : dispositivos) {
+            if (dispositivo instanceof Fogao) {
+                Fogao f = (Fogao) dispositivo;
+                if (comodo.equals(f.getComodo())) {
+                    f.setTemperatura(temperatura);
+                }
+            }
+        }
+    }
+
+    public void salvarDispositivos() {
+        Conversor cv = new Conversor();
+
+        cv.salvarDispositivos(dispositivos);
     }
     
 
