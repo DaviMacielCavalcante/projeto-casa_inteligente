@@ -9,12 +9,15 @@ import com.casa_inteligente.entidades.CasaInteligente;
 public class Tela extends JFrame {
     private CasaInteligente casaInteligente = new CasaInteligente();
 
+    public Tela() {
+        menuInicial();
+    }
+
     public void menuInicial() {
-        JFrame telaPrincipal = new JFrame("Casa Inteligente");
-        telaPrincipal.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        telaPrincipal.setSize(400, 300);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setSize(400, 300);
         JPanel painelPrincipal = new JPanel();
-        telaPrincipal.add(painelPrincipal);
+        add(painelPrincipal);
 
         JButton salaBotao = criarBotao("1 - Sala");
         JButton cozinhaBotao = criarBotao("2 - Cozinha");
@@ -32,23 +35,22 @@ public class Tela extends JFrame {
         quartoBotao.addActionListener(e -> abrirQuarto());
         segurancaBotao.addActionListener(e -> abrirSeguranca());
 
-        telaPrincipal.setVisible(true);
+        setVisible(true);
     }
 
     private JButton criarBotao(String texto) {
         JButton botao = new JButton(texto);
         botao.setPreferredSize(new Dimension(150, 40));
-        botao.setBackground(new Color(52, 152, 219)); 
-        botao.setForeground(Color.WHITE); 
-        botao.setFont(new Font("Arial", Font.BOLD, 14)); 
-        botao.setFocusPainted(false); 
-        botao.setBorderPainted(false); 
-        botao.setMargin(new Insets(10, 10, 10, 10)); 
+        botao.setBackground(new Color(52, 152, 219));
+        botao.setForeground(Color.WHITE);
+        botao.setFont(new Font("Arial", Font.BOLD, 14));
+        botao.setFocusPainted(false);
+        botao.setBorderPainted(false);
+        botao.setMargin(new Insets(10, 10, 10, 10));
         return botao;
     }
 
     public void abrirSala() {
-        JFrame salaMenu = criarJanela("Sala");
         JPanel painelSala = new JPanel();
         painelSala.setLayout(new FlowLayout());
         JLabel labelSala = new JLabel("Opções sala:");
@@ -60,21 +62,23 @@ public class Tela extends JFrame {
         painelSala.add(ligarIluminacaoButton);
         painelSala.add(desligarIluminacaoButton);
 
-        salaMenu.add(painelSala);
+        getContentPane().removeAll();
+        getContentPane().add(painelSala);
+        revalidate();
+        repaint();
     }
 
     public void abrirCozinha() {
-        JFrame cozinhaMenu = criarJanela("Cozinha");
         JPanel painelCozinha = new JPanel();
         painelCozinha.setLayout(new FlowLayout());
         JLabel labelCozinha = new JLabel("Opções cozinha");
 
-        JButton ligarFogaoButton = criarBotaoAcao("Ligar Fogão", "", "ligarFogao");
-        JButton desligarFogaoButton = criarBotaoAcao("Desligar Fogão", "", "desligarFogao");
-        JButton escolherTempFogaoButton = criarBotaoAcao("Escolher Temperatura", "", "escolherTempFogao");
-        JButton ligarGeladeiraButton = criarBotaoAcao("Ligar Geladeira", "", "ligarGeladeira");
-        JButton desligarGeladeiraButton = criarBotaoAcao("Desligar Geladeira", "", "desligarGeladeira");
-        JButton tempGeladeiraButton = criarBotaoAcao("Temperatura Geladeira", "", "tempGeladeira");
+        JButton ligarFogaoButton = criarBotaoAcao("Ligar Fogão", "cozinha", "ligarFogao");
+        JButton desligarFogaoButton = criarBotaoAcao("Desligar Fogão", "cozinha", "desligarFogao");
+        JButton escolherTempFogaoButton = criarBotaoAcao("Escolher Temperatura Fogão", "cozinha", "configTempFogao");
+        JButton ligarGeladeiraButton = criarBotaoAcao("Ligar Geladeira", "cozinha", "ligarGeladeira");
+        JButton desligarGeladeiraButton = criarBotaoAcao("Desligar Geladeira", "cozinha", "desligarGeladeira");
+        JButton tempGeladeiraButton = criarBotaoAcao("Temperatura Geladeira", "cozinha", "tempGeladeira");
         JButton ligarIluminacaoCozinhaButton = criarBotaoAcao("Ligar Iluminação", "cozinha", "ligarIluminacao");
         JButton desligarIluminacaoCozinhaButton = criarBotaoAcao("Desligar Iluminação", "cozinha", "desligarIluminacao");
 
@@ -88,23 +92,24 @@ public class Tela extends JFrame {
         painelCozinha.add(ligarIluminacaoCozinhaButton);
         painelCozinha.add(desligarIluminacaoCozinhaButton);
 
-        cozinhaMenu.add(painelCozinha);
+        getContentPane().removeAll();
+        getContentPane().add(painelCozinha);
+        revalidate();
+        repaint();
     }
 
     public void abrirQuarto() {
-
-        JFrame quartoMenu = criarJanela("Quarto");
         JPanel painelQuarto = new JPanel();
 
         JButton ligarClimatizadorButton = criarBotaoAcao("Ligar Climatizador", "quarto", "ligarClimatizador");
         JButton desligarClimatizadorButton = criarBotaoAcao("Desligar Climatizador", "quarto", "desligarClimatizador");
-        JButton configTempClimatizadorButton = criarBotaoAcao("Configurar Temperatura", "quarto", "configTempClimatizador");
+        JButton configTempClimatizadorButton = criarBotaoAcao("Configurar Temperatura Climatizador", "quarto", "configTempClimatizador");
         JButton ligarIluminacaoQuartoButton = criarBotaoAcao("Ligar Iluminação", "quarto", "ligarIluminacao");
         JButton desligarIluminacaoQuartoButton = criarBotaoAcao("Desligar Iluminação", "quarto", "desligarIluminacao");
         JButton ligarTvButton = criarBotaoAcao("Ligar TV", "quarto", "ligarTv");
         JButton desligarTvButton = criarBotaoAcao("Desligar TV", "quarto", "desligarTv");
-        JButton configVolumeTvButton = criarBotaoAcao("Configurar Volume", "quarto", "configVolumeTv");
-        JButton mudarCanalTvButton = criarBotaoAcao("Mudar Canal", "quarto", "mudarCanalTv");
+        JButton configVolumeTvButton = criarBotaoAcao("Configurar Volume TV", "quarto", "configVolumeTv");
+        JButton mudarCanalTvButton = criarBotaoAcao("Mudar Canal TV", "quarto", "mudarCanalTv");
 
         painelQuarto.add(ligarClimatizadorButton);
         painelQuarto.add(desligarClimatizadorButton);
@@ -116,32 +121,29 @@ public class Tela extends JFrame {
         painelQuarto.add(configVolumeTvButton);
         painelQuarto.add(mudarCanalTvButton);
 
-        quartoMenu.add(painelQuarto);
+        getContentPane().removeAll();
+        getContentPane().add(painelQuarto);
+        revalidate();
+        repaint();
     }
 
     public void abrirSeguranca() {
-        JFrame segurancaMenu = criarJanela("Segurança");
         JPanel painelSeguranca = new JPanel();
 
-        JButton ligarAlarmeButton = criarBotaoAcao("Ligar Alarme", "", "ligarAlarme");
-        JButton desligarAlarmeButton = criarBotaoAcao("Desligar Alarme", "", "desligarAlarme");
-        JButton ligarCamerasButton = criarBotaoAcao("Ligar Câmeras", "", "ligarCameras");
-        JButton desligarCamerasButton = criarBotaoAcao("Desligar Câmeras", "", "desligarCameras");
+        JButton ligarAlarmeButton = criarBotaoAcao("Ligar Alarme", "seguranca", "ligarAlarme");
+        JButton desligarAlarmeButton = criarBotaoAcao("Desligar Alarme", "seguranca", "desligarAlarme");
+        JButton ligarCamerasButton = criarBotaoAcao("Ligar Câmeras", "seguranca", "ligarCameras");
+        JButton desligarCamerasButton = criarBotaoAcao("Desligar Câmeras", "seguranca", "desligarCameras");
 
         painelSeguranca.add(ligarAlarmeButton);
         painelSeguranca.add(desligarAlarmeButton);
         painelSeguranca.add(ligarCamerasButton);
         painelSeguranca.add(desligarCamerasButton);
 
-        segurancaMenu.add(painelSeguranca);
-    }
-
-    private JFrame criarJanela(String titulo) {
-        JFrame janela = new JFrame(titulo);
-        janela.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        janela.setSize(500, 500);
-        janela.setVisible(true);
-        return janela;
+        getContentPane().removeAll();
+        getContentPane().add(painelSeguranca);
+        revalidate();
+        repaint();
     }
 
     private JButton criarBotaoAcao(String texto, String dispositivo, String acao) {
@@ -154,9 +156,51 @@ public class Tela extends JFrame {
         switch (acao) {
             case "ligarIluminacao":
                 casaInteligente.ligarIluminacao(dispositivo);
+                JOptionPane.showMessageDialog(this, "Iluminação ligada na " + dispositivo);
                 break;
             case "desligarIluminacao":
                 casaInteligente.desligarIluminacao(dispositivo);
+                JOptionPane.showMessageDialog(this, "Iluminação desligada na " + dispositivo);
+                break;
+            case "ligarFogao":
+                casaInteligente.ligarFogao(dispositivo);
+                JOptionPane.showMessageDialog(this, "Fogão ligado na " + dispositivo);
+                break;
+            case "desligarFogao":
+                casaInteligente.desligarFogao(dispositivo);
+                JOptionPane.showMessageDialog(this, "Fogão desligado na " + dispositivo);
+                break;
+            case "configTempFogao":
+                casaInteligente.configurarTemperaturaFogao(dispositivo, 180);
+                JOptionPane.showMessageDialog(this, "Temperatura do fogão configurada na " + dispositivo + ": 180°C");
+                break;
+            case "ligarGeladeira":
+                casaInteligente.ligarGeladeira();
+                JOptionPane.showMessageDialog(this, "Geladeira ligada");
+                break;
+            case "desligarGeladeira":
+                casaInteligente.desligarGeladeira();
+                JOptionPane.showMessageDialog(this, "Geladeira desligada");
+                break;
+            case "tempGeladeira":
+                casaInteligente.geladeiraTemperatura(5);
+                JOptionPane.showMessageDialog(this, "Temperatura da geladeira configurada: 5°C");
+                break;
+            case "ligarTv":
+                casaInteligente.ligarTv(dispositivo);
+                JOptionPane.showMessageDialog(this, "TV ligada na " + dispositivo);
+                break;
+            case "desligarTv":
+                casaInteligente.desligarTv(dispositivo);
+                JOptionPane.showMessageDialog(this, "TV desligada na " + dispositivo);
+                break;
+            case "configVolumeTv":
+                casaInteligente.mudarVolumeTv(dispositivo, 20);
+                JOptionPane.showMessageDialog(this, "Volume da TV configurado na " + dispositivo + ": 20");
+                break;
+            case "mudarCanalTv":
+                casaInteligente.mudarCanalTv(dispositivo, 5);
+                JOptionPane.showMessageDialog(this, "Canal da TV mudado na " + dispositivo + ": 5");
                 break;
         }
         casaInteligente.salvarDispositivos();
