@@ -18,12 +18,12 @@
   {
     "tipo": "Iluminacao",
     "comodo": "quarto",
-    "ligado": true
+    "ligado": false
   },
   {
     "tipo": "Iluminacao",
     "comodo": "cozinha",
-    "ligado": false
+    "ligado": true
   },
   {
     "tipo": "Iluminacao",
@@ -46,6 +46,6 @@
     "comodo": "quarto",
     "canal": 0,
     "volume": 0,
-    "ligado": false
+    "ligado": true
   }
 ]

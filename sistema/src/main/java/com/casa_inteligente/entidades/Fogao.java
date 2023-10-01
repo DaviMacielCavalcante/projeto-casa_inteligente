@@ -30,13 +30,6 @@ public class Fogao extends Dispositivo {
     @Override
     public String toString() {
         return "Fogão [ligado= " + isLigado() + ", " + "temperatura= " + temperatura + "]";
-    }    
+    } 
 
-    public String getComodo() {
-        return comodo;
-    }
-
-    public void setComodo(String novoComodo) {
-        this.comodo = novoComodo;    
-}
 }
