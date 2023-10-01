@@ -1,5 +1,9 @@
 package com.casa_inteligente.entidades;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+
+
 import java.io.BufferedReader;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -105,18 +109,18 @@ public class CasaInteligente {
         }
     }
 
-    public void ligarClimatizador(String comodo){
-        for(Dispositivo dispositivo : dispositivos){
-            if(dispositivo instanceof Climatizador){
+    public void ligarClimatizador(String comodo) {
+        for (Dispositivo dispositivo : dispositivos) {
+            if (dispositivo instanceof Climatizador) {
                 Climatizador c = (Climatizador) dispositivo;
-                if(comodo.equals(c.getComodo()) && !c.isLigado()){
+                if (comodo.equals(c.getComodo()) && !c.isLigado()) {
                     c.ligar();
                     System.out.println("Climatizador ligado");
-
                 }
             }
         }
     }
+
 
 
     public void mudarCanalTv(String comodo, int canal) {
@@ -156,34 +160,29 @@ public class CasaInteligente {
     }
     ///////////////////
 
-    public void ativarCamera(boolean camera){
-        for(Dispositivo dispositivo : dispositivos){
-            if(dispositivo instanceof Seguranca){
+    public void ativarCamera(String comodo, String dispositivoAtivar) {
+        for (Dispositivo dispositivo : dispositivos) {
+            if (dispositivo instanceof Seguranca) {
                 Seguranca cam = (Seguranca) dispositivo;
-                if(camera != cam.isLigado()){
+                if (comodo.equals(cam.getComodo())) {
                     cam.ligar();
-                    System.out.println("Camera ligada");
-                } else {
-                    System.out.println("Camera ja ligada");
+                    System.out.println("Câmera ativada em " + comodo);
                 }
             }
         }
     }
-
-    public void desligarCamera(boolean camera){
-        for(Dispositivo dispositivo : dispositivos){
-            if(dispositivo instanceof Seguranca){
+    public void desligarCamera(String comodo, String dispositivoDesligar) {
+        for (Dispositivo dispositivo : dispositivos) {
+            if (dispositivo instanceof Seguranca) {
                 Seguranca cam = (Seguranca) dispositivo;
-                if(camera = cam.isLigado()){
+                if (comodo.equals(cam.getComodo())) {
                     cam.desligar();
-                    System.out.println("Desligando sistema...");
-                } else {
-                    System.out.println("Camera ja desligada");
+                    System.out.println("Câmera desligada em " + comodo);
                 }
             }
         }
     }
-    public void ligarAlarme(boolean alarme){
+    public void ligarAlarme(boolean alarme, String comodo){
         for(Dispositivo dispositivo : dispositivos){
             if(dispositivo instanceof Seguranca){
                 Seguranca al = (Seguranca) dispositivo;
@@ -197,7 +196,7 @@ public class CasaInteligente {
         }
     }
 
-    public void desligarAlarme(boolean alarme){
+    public void desligarAlarme(boolean alarme, String comodo){
         for(Dispositivo dispositivo : dispositivos){
             if(dispositivo instanceof Seguranca){
                 Seguranca al = (Seguranca) dispositivo;
