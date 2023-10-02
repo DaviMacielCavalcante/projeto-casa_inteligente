@@ -160,8 +160,8 @@ public class CasaInteligente {
         for(Dispositivo dispositivo : dispositivos){
             if(dispositivo instanceof Seguranca){
                 Seguranca cam = (Seguranca) dispositivo;
-                if(camera != cam.isLigado()){
-                    cam.ligar();
+                if(camera != cam.isLigado()){                  
+                    cam.setCamera(true);
                     System.out.println("Camera ligada");
                 } else {
                     System.out.println("Camera ja ligada");
@@ -175,7 +175,7 @@ public class CasaInteligente {
             if(dispositivo instanceof Seguranca){
                 Seguranca cam = (Seguranca) dispositivo;
                 if(camera = cam.isLigado()){
-                    cam.desligar();
+                    cam.setAlarme(false);
                     System.out.println("Desligando sistema...");
                 } else {
                     System.out.println("Camera ja desligada");
@@ -188,7 +188,7 @@ public class CasaInteligente {
             if(dispositivo instanceof Seguranca){
                 Seguranca al = (Seguranca) dispositivo;
                 if(alarme != al.isLigado()){
-                    al.ligar();
+                    al.setAlarme(true);
                     System.out.println("alarme ligado");
                 } else {
                     System.out.println("alarme ja estava ligado");
@@ -202,7 +202,7 @@ public class CasaInteligente {
             if(dispositivo instanceof Seguranca){
                 Seguranca al = (Seguranca) dispositivo;
                 if(alarme = al.isLigado()){
-                    al.desligar();
+                    al.setAlarme(false);
                     System.out.println("Alarme desligado");
                 } else {
                     System.out.println("Alarme ja estava desligado");
