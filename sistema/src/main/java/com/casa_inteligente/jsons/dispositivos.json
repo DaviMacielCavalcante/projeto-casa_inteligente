@@ -18,7 +18,7 @@
   {
     "tipo": "Iluminacao",
     "comodo": "quarto",
-    "ligado": false
+    "ligado": true
   },
   {
     "tipo": "Iluminacao",
@@ -44,8 +44,8 @@
   {
     "tipo": "Tv",
     "comodo": "quarto",
-    "canal": 0,
-    "volume": 0,
-    "ligado": true
+    "canal": 5,
+    "volume": 20,
+    "ligado": false
   }
 ]

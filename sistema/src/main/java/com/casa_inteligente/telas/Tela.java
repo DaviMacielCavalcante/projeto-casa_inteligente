@@ -206,20 +206,20 @@ public class Tela extends JFrame {
                 JOptionPane.showMessageDialog(this, "Canal da TV mudado na " + dispositivo + ": 5");
                 break;
                 case "ligarAlarme":
-                casaInteligente.ligarAlarme(true, dispositivo);
+                casaInteligente.ligarAlarme();
                 JOptionPane.showMessageDialog(this, "Alarme ligado na " + dispositivo);
                 break;
             case "desligarAlarme":
-                casaInteligente.desligarAlarme(true,dispositivo);
+                casaInteligente.desligarAlarme();
                 JOptionPane.showMessageDialog(this, "Alarme desligado na " + dispositivo);
                 break;
             
             case "ativarCamera":
-                casaInteligente.ativarCamera("sala", dispositivo);
+                casaInteligente.ativarCamera();
                 JOptionPane.showMessageDialog(this, "Camera ligada na: " + dispositivo);
                 break;
             case "desligarCamera":
-                casaInteligente.desligarCamera("cozinha", dispositivo);
+                casaInteligente.desligarCamera();
                 JOptionPane.showMessageDialog(this, "Camera desligada na: " + dispositivo);
                 break;
         }

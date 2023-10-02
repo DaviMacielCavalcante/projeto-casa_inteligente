@@ -160,7 +160,7 @@ public class CasaInteligente {
     }
     ///////////////////
 
-    public void ativarCamera(String comodo, String dispositivoAtivar) {
+    public void ativarCamera() {
         for (Dispositivo dispositivo : dispositivos) {
             if (dispositivo instanceof Seguranca) {
                 Seguranca cam = (Seguranca) dispositivo;
@@ -173,7 +173,7 @@ public class CasaInteligente {
             }
         }
     }
-    public void desligarCamera(String comodo, String dispositivoDesligar) {
+    public void desligarCamera() {
         for (Dispositivo dispositivo : dispositivos) {
             if (dispositivo instanceof Seguranca) {
                 Seguranca cam = (Seguranca) dispositivo;
@@ -186,11 +186,11 @@ public class CasaInteligente {
             }
         }
     }
-    public void ligarAlarme(boolean alarme, String comodo){
+    public void ligarAlarme(){
         for(Dispositivo dispositivo : dispositivos){
             if(dispositivo instanceof Seguranca){
                 Seguranca al = (Seguranca) dispositivo;
-                if(alarme != al.isLigado()){
+                if(!al.isLigado()){
                     al.setAlarme(true);
                     System.out.println("alarme ligado");
                 } else {
@@ -200,11 +200,11 @@ public class CasaInteligente {
         }
     }
 
-    public void desligarAlarme(boolean alarme, String comodo){
+    public void desligarAlarme(){
         for(Dispositivo dispositivo : dispositivos){
             if(dispositivo instanceof Seguranca){
                 Seguranca al = (Seguranca) dispositivo;
-                if(alarme = al.isLigado()){
+                if(!al.isLigado()){
                     al.setAlarme(false);
                     System.out.println("Alarme desligado");
                 } else {
