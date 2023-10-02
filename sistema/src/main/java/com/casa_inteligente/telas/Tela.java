@@ -1,5 +1,7 @@
 package com.casa_inteligente.telas;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -153,6 +155,7 @@ public class Tela extends JFrame {
     }
 
     private void realizarAcao(String dispositivo, String acao) {
+        boolean ativar = true;
         switch (acao) {
             case "ligarIluminacao":
                 casaInteligente.ligarIluminacao(dispositivo);
@@ -201,6 +204,23 @@ public class Tela extends JFrame {
             case "mudarCanalTv":
                 casaInteligente.mudarCanalTv(dispositivo, 5);
                 JOptionPane.showMessageDialog(this, "Canal da TV mudado na " + dispositivo + ": 5");
+                break;
+                case "ligarAlarme":
+                casaInteligente.ligarAlarme(true, dispositivo);
+                JOptionPane.showMessageDialog(this, "Alarme ligado na " + dispositivo);
+                break;
+            case "desligarAlarme":
+                casaInteligente.desligarAlarme(true,dispositivo);
+                JOptionPane.showMessageDialog(this, "Alarme desligado na " + dispositivo);
+                break;
+            
+            case "ativarCamera":
+                casaInteligente.ativarCamera("sala", dispositivo);
+                JOptionPane.showMessageDialog(this, "Camera ligada na: " + dispositivo);
+                break;
+            case "desligarCamera":
+                casaInteligente.desligarCamera("cozinha", dispositivo);
+                JOptionPane.showMessageDialog(this, "Camera desligada na: " + dispositivo);
                 break;
         }
         casaInteligente.salvarDispositivos();
