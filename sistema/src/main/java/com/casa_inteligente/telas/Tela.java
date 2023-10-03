@@ -3,13 +3,17 @@ package com.casa_inteligente.telas;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import javax.swing.*;
+import javax.xml.crypto.Data;
+
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import com.casa_inteligente.entidades.CasaInteligente;
+import com.casa_inteligente.datas.JodaTime;
 
 public class Tela extends JFrame {
     private CasaInteligente casaInteligente = new CasaInteligente();
+    private JodaTime data = new JodaTime();
 
     public Tela() {
         menuInicial();
@@ -25,17 +29,21 @@ public class Tela extends JFrame {
         JButton cozinhaBotao = criarBotao("2 - Cozinha");
         JButton quartoBotao = criarBotao("3 - Quarto");
         JButton segurancaBotao = criarBotao("4 - Segurança");
+        JButton mostrarDataBotao = criarBotao("5 - Exibir Data ");
 
-        painelPrincipal.setLayout(new GridLayout(4, 1, 5, 5));
+        painelPrincipal.setLayout(new GridLayout(5, 1, 5, 5));
         painelPrincipal.add(salaBotao);
         painelPrincipal.add(cozinhaBotao);
         painelPrincipal.add(quartoBotao);
         painelPrincipal.add(segurancaBotao);
+        painelPrincipal.add(mostrarDataBotao);
 
         salaBotao.addActionListener(e -> abrirSala());
         cozinhaBotao.addActionListener(e -> abrirCozinha());
         quartoBotao.addActionListener(e -> abrirQuarto());
         segurancaBotao.addActionListener(e -> abrirSeguranca());
+        mostrarDataBotao.addActionListener(e -> mostrarData());
+        
 
         setVisible(true);
     }
@@ -153,6 +161,10 @@ public class Tela extends JFrame {
         botao.addActionListener(e -> realizarAcao(dispositivo, acao));
         return botao;
     }
+    private void mostrarData(){
+        JOptionPane.showMessageDialog(this,"Belém: \n" + data.mostrarData() + "\n" + data.mostrarHora() );
+    }
+
 
     private void realizarAcao(String dispositivo, String acao) {
         boolean ativar = true;
