@@ -31,6 +31,6 @@ public class Seguranca extends Dispositivo {
 
     @Override
     public String toString() {
-        return "Segurança [ligado= " + isLigado() + "]";
+        return "Segurança [ligado= " + isLigado() + ", camera=" + isCamera() + ", alarme=" + isAlarme() +"]";
     }
 }

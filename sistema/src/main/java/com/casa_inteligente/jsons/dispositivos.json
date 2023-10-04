@@ -38,7 +38,7 @@
   {
     "tipo": "Seguranca",
     "camera": false,
-    "alarme": false,
+    "alarme": true,
     "ligado": true
   },
   {

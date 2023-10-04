@@ -216,7 +216,7 @@ public class CasaInteligente {
         for(Dispositivo dispositivo : dispositivos){
             if(dispositivo instanceof Seguranca){
                 Seguranca al = (Seguranca) dispositivo;
-                if(!al.isLigado()){
+                if(al.isLigado()){
                     al.setAlarme(true);
                     System.out.println("alarme ligado");
                 } else {
