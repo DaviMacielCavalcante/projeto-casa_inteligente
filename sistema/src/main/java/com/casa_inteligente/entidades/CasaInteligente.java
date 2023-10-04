@@ -186,6 +186,32 @@ public class CasaInteligente {
             }
         }
     }
+    public void ligarSeguranca(){
+        for(Dispositivo dispositivo : dispositivos){
+            if(dispositivo instanceof Seguranca){
+                Seguranca al = (Seguranca) dispositivo;
+                if(!al.isLigado()){
+                    al.ligar();
+                    System.out.println("Segurança ligada");
+                } else {
+                    System.out.println("Segurança já estava ligada");
+                }
+            }
+        }
+    }
+    public void desligarSeguranca(){
+        for(Dispositivo dispositivo : dispositivos){
+            if(dispositivo instanceof Seguranca){
+                Seguranca al = (Seguranca) dispositivo;
+                if(al.isLigado()){
+                    al.desligar();
+                    System.out.println("Segurança desligada");
+                } else {
+                    System.out.println("Segurança já estava desligada");
+                }
+             }
+      }
+    }
     public void ligarAlarme(){
         for(Dispositivo dispositivo : dispositivos){
             if(dispositivo instanceof Seguranca){
@@ -204,7 +230,7 @@ public class CasaInteligente {
         for(Dispositivo dispositivo : dispositivos){
             if(dispositivo instanceof Seguranca){
                 Seguranca al = (Seguranca) dispositivo;
-                if(!al.isLigado()){
+                if(al.isLigado()){
                     al.setAlarme(false);
                     System.out.println("Alarme desligado");
                 } else {

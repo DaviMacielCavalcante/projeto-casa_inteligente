@@ -2,7 +2,7 @@
   {
     "tipo": "Fogao",
     "temperatura": 0.0,
-    "ligado": false
+    "ligado": true
   },
   {
     "tipo": "Geladeira",
@@ -28,7 +28,7 @@
   {
     "tipo": "Iluminacao",
     "comodo": "sala",
-    "ligado": true
+    "ligado": false
   },
   {
     "tipo": "Iluminacao",
@@ -44,8 +44,8 @@
   {
     "tipo": "Tv",
     "comodo": "quarto",
-    "canal": 5,
-    "volume": 20,
+    "canal": 0,
+    "volume": 0,
     "ligado": false
   }
 ]

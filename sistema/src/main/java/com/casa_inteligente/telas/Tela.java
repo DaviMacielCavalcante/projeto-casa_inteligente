@@ -4,6 +4,8 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import javax.swing.*;
 import javax.xml.crypto.Data;
+import org.joda.time.DateTime;
+
 
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -144,11 +146,15 @@ public class Tela extends JFrame {
         JButton desligarAlarmeButton = criarBotaoAcao("Desligar Alarme", "seguranca", "desligarAlarme");
         JButton ligarCamerasButton = criarBotaoAcao("Ligar Câmeras", "seguranca", "ligarCameras");
         JButton desligarCamerasButton = criarBotaoAcao("Desligar Câmeras", "seguranca", "desligarCameras");
+        JButton ligarSegurancaButton = criarBotaoAcao("Ligar Segurança", "seguranca", "ligarSeguranca");
+        JButton desligarSegurancaButton = criarBotaoAcao("Desligar Segurança", "seguranca", "desligarSeguranca");
 
         painelSeguranca.add(ligarAlarmeButton);
         painelSeguranca.add(desligarAlarmeButton);
         painelSeguranca.add(ligarCamerasButton);
         painelSeguranca.add(desligarCamerasButton);
+        painelSeguranca.add(ligarSegurancaButton);
+        painelSeguranca.add(desligarSegurancaButton);
 
         getContentPane().removeAll();
         getContentPane().add(painelSeguranca);
@@ -167,7 +173,6 @@ public class Tela extends JFrame {
 
 
     private void realizarAcao(String dispositivo, String acao) {
-        boolean ativar = true;
         switch (acao) {
             case "ligarIluminacao":
                 casaInteligente.ligarIluminacao(dispositivo);
@@ -217,7 +222,7 @@ public class Tela extends JFrame {
                 casaInteligente.mudarCanalTv(dispositivo, 5);
                 JOptionPane.showMessageDialog(this, "Canal da TV mudado na " + dispositivo + ": 5");
                 break;
-                case "ligarAlarme":
+            case "ligarAlarme":
                 casaInteligente.ligarAlarme();
                 JOptionPane.showMessageDialog(this, "Alarme ligado na " + dispositivo);
                 break;
@@ -233,6 +238,14 @@ public class Tela extends JFrame {
             case "desligarCamera":
                 casaInteligente.desligarCamera();
                 JOptionPane.showMessageDialog(this, "Camera desligada na: " + dispositivo);
+                break;
+            case "ligarSeguranca":
+                casaInteligente.ligarSeguranca();
+                JOptionPane.showMessageDialog(this, "Segurança ligada");
+                break;
+            case "desligarSeguranca":
+                casaInteligente.desligarSeguranca();
+                JOptionPane.showMessageDialog(this, "Segurança desligada");
                 break;
         }
         casaInteligente.salvarDispositivos();
