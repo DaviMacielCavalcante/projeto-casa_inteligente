@@ -2,12 +2,12 @@
   {
     "tipo": "Fogao",
     "temperatura": 0.0,
-    "ligado": true
+    "ligado": false
   },
   {
     "tipo": "Geladeira",
     "temperatura": 10,
-    "ligado": false
+    "ligado": true
   },
   {
     "tipo": "Climatizador",
@@ -38,14 +38,14 @@
   {
     "tipo": "Seguranca",
     "camera": false,
-    "alarme": true,
-    "ligado": true
+    "alarme": false,
+    "ligado": false
   },
   {
     "tipo": "Tv",
     "comodo": "quarto",
     "canal": 0,
     "volume": 0,
-    "ligado": false
+    "ligado": true
   }
 ]

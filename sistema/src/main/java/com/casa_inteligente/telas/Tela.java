@@ -23,7 +23,7 @@ public class Tela extends JFrame {
 
     public void menuInicial() {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setSize(400, 300);
+        setSize(600, 400);
         JPanel painelPrincipal = new JPanel();
         add(painelPrincipal);
 
@@ -52,7 +52,7 @@ public class Tela extends JFrame {
 
     private JButton criarBotao(String texto) {
         JButton botao = new JButton(texto);
-        botao.setPreferredSize(new Dimension(150, 40));
+        botao.setPreferredSize(new Dimension(200, 50));
         botao.setBackground(new Color(52, 152, 219));
         botao.setForeground(Color.WHITE);
         botao.setFont(new Font("Arial", Font.BOLD, 14));
@@ -122,6 +122,8 @@ public class Tela extends JFrame {
         JButton desligarTvButton = criarBotaoAcao("Desligar TV", "quarto", "desligarTv");
         JButton configVolumeTvButton = criarBotaoAcao("Configurar Volume TV", "quarto", "configVolumeTv");
         JButton mudarCanalTvButton = criarBotaoAcao("Mudar Canal TV", "quarto", "mudarCanalTv");
+        JButton ligarIluminacaoBanheiroButton = criarBotaoAcao("Ligar luz (banheiro)", "banheiro", "ligarIluminacao");
+        JButton desligarIluminacaoBanheiroButton = criarBotaoAcao("Desligar luz (banheiro)", "banheiro", "desligarIluminacao");
 
         painelQuarto.add(ligarClimatizadorButton);
         painelQuarto.add(desligarClimatizadorButton);
@@ -132,6 +134,8 @@ public class Tela extends JFrame {
         painelQuarto.add(desligarTvButton);
         painelQuarto.add(configVolumeTvButton);
         painelQuarto.add(mudarCanalTvButton);
+        painelQuarto.add(ligarIluminacaoBanheiroButton);
+        painelQuarto.add(desligarIluminacaoBanheiroButton);
 
         getContentPane().removeAll();
         getContentPane().add(painelQuarto);
@@ -231,11 +235,11 @@ public class Tela extends JFrame {
                 JOptionPane.showMessageDialog(this, "Alarme desligado na " + dispositivo);
                 break;
             
-            case "ativarCamera":
+            case "ligarCameras":
                 casaInteligente.ativarCamera();
                 JOptionPane.showMessageDialog(this, "Camera ligada na: " + dispositivo);
                 break;
-            case "desligarCamera":
+            case "desligarCameras":
                 casaInteligente.desligarCamera();
                 JOptionPane.showMessageDialog(this, "Camera desligada na: " + dispositivo);
                 break;
@@ -247,6 +251,19 @@ public class Tela extends JFrame {
                 casaInteligente.desligarSeguranca();
                 JOptionPane.showMessageDialog(this, "Segurança desligada");
                 break;
+            case "ligarClimatizador":
+                casaInteligente.ligarClimatizador(dispositivo);
+                JOptionPane.showMessageDialog(this, "Climatizador ligado");
+                break;
+            case "desligarClimatizador":
+                casaInteligente.desligarClimatizador(dispositivo);
+                JOptionPane.showMessageDialog(this, "Climatizador desligado");
+                break;
+            case "configTempClimatizador":
+                casaInteligente.alterarTemperatura(dispositivo, 20);
+                JOptionPane.showMessageDialog(this, "Temperatura do climatizador alterado para: 20");
+                break;
+
         }
         casaInteligente.salvarDispositivos();
     }

@@ -164,11 +164,8 @@ public class CasaInteligente {
         for (Dispositivo dispositivo : dispositivos) {
             if (dispositivo instanceof Seguranca) {
                 Seguranca cam = (Seguranca) dispositivo;
-                if(!cam.isLigado()){                  
+                if(cam.isLigado()){                  
                     cam.setCamera(true);
-                    System.out.println("Camera ligada");
-                } else {
-                    System.out.println("Camera ja ligada");
                 }
             }
         }
@@ -179,9 +176,6 @@ public class CasaInteligente {
                 Seguranca cam = (Seguranca) dispositivo;
                 if(cam.isLigado()){
                     cam.setCamera(false);
-                    System.out.println("Desligando sistema...");
-                } else {
-                    System.out.println("Camera ja desligada");
                 }
             }
         }
