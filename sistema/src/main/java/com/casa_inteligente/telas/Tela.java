@@ -16,6 +16,8 @@ import com.casa_inteligente.datas.JodaTime;
 public class Tela extends JFrame {
     private CasaInteligente casaInteligente = new CasaInteligente();
     private JodaTime data = new JodaTime();
+    private JTextField
+    temperaturaFogaoTextField;
 
     public Tela() {
         menuInicial();
@@ -45,7 +47,6 @@ public class Tela extends JFrame {
         quartoBotao.addActionListener(e -> abrirQuarto());
         segurancaBotao.addActionListener(e -> abrirSeguranca());
         mostrarDataBotao.addActionListener(e -> mostrarData());
-        
 
         setVisible(true);
     }
@@ -88,21 +89,14 @@ public class Tela extends JFrame {
         JButton ligarFogaoButton = criarBotaoAcao("Ligar Fogão", "cozinha", "ligarFogao");
         JButton desligarFogaoButton = criarBotaoAcao("Desligar Fogão", "cozinha", "desligarFogao");
         JButton escolherTempFogaoButton = criarBotaoAcao("Escolher Temperatura Fogão", "cozinha", "configTempFogao");
-        JButton ligarGeladeiraButton = criarBotaoAcao("Ligar Geladeira", "cozinha", "ligarGeladeira");
-        JButton desligarGeladeiraButton = criarBotaoAcao("Desligar Geladeira", "cozinha", "desligarGeladeira");
-        JButton tempGeladeiraButton = criarBotaoAcao("Temperatura Geladeira", "cozinha", "tempGeladeira");
-        JButton ligarIluminacaoCozinhaButton = criarBotaoAcao("Ligar Iluminação", "cozinha", "ligarIluminacao");
-        JButton desligarIluminacaoCozinhaButton = criarBotaoAcao("Desligar Iluminação", "cozinha", "desligarIluminacao");
 
+        // Adicione o campo de texto para a temperatura do fogão
+        temperaturaFogaoTextField = new JTextField(5);
         painelCozinha.add(labelCozinha);
         painelCozinha.add(ligarFogaoButton);
         painelCozinha.add(desligarFogaoButton);
         painelCozinha.add(escolherTempFogaoButton);
-        painelCozinha.add(ligarGeladeiraButton);
-        painelCozinha.add(desligarGeladeiraButton);
-        painelCozinha.add(tempGeladeiraButton);
-        painelCozinha.add(ligarIluminacaoCozinhaButton);
-        painelCozinha.add(desligarIluminacaoCozinhaButton);
+        painelCozinha.add(temperaturaFogaoTextField);
 
         getContentPane().removeAll();
         getContentPane().add(painelCozinha);
@@ -194,9 +188,21 @@ public class Tela extends JFrame {
                 casaInteligente.desligarFogao(dispositivo);
                 JOptionPane.showMessageDialog(this, "Fogão desligado na " + dispositivo);
                 break;
-            case "configTempFogao":
-                casaInteligente.configurarTemperaturaFogao(dispositivo, 180);
-                JOptionPane.showMessageDialog(this, "Temperatura do fogão configurada na " + dispositivo + ": 180°C");
+                case "configTempFogao":
+                // Obtenha a temperatura do campo de texto
+                String tempStr = temperaturaFogaoTextField.getText();
+                try {
+                    // Converta a temperatura para um valor numérico
+                    int temperatura = Integer.parseInt(tempStr);
+
+                    // Configure a temperatura do fogão
+                    casaInteligente.configurarTemperaturaFogao(dispositivo, temperatura);
+
+                    // Exiba uma mensagem com a temperatura configurada
+                    JOptionPane.showMessageDialog(this, "Temperatura do fogão configurada na " + dispositivo + ": " + temperatura + "°C");
+                } catch (NumberFormatException e) {
+                    JOptionPane.showMessageDialog(this, "Por favor, insira uma temperatura válida.");
+                }
                 break;
             case "ligarGeladeira":
                 casaInteligente.ligarGeladeira();
